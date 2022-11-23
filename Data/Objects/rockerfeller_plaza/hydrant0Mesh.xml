@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/rockerfeller_plaza/hydrant0Mesh.obj</Model>
+	<ColorMap>Data/Textures/rockerfeller_plaza/Image_45.png</ColorMap>
+	<NormalMap>Data/Textures/normal.tga</NormalMap>
+	<ShaderName>envobject #TANGENT</ShaderName>
+</Object>

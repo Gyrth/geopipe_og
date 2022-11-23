@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/rockerfeller_plaza/geometryt000010000010000110010110000110000110100100000000st94_C.obj</Model>
+	<ColorMap>Data/Textures/rockerfeller_plaza/Image_24.png</ColorMap>
+	<NormalMap>Data/Textures/normal.tga</NormalMap>
+	<ShaderName>envobject #TANGENT</ShaderName>
+</Object>

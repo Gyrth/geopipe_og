@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/rockerfeller_plaza/tree0Plane024.obj</Model>
+	<ColorMap>Data/Textures/rockerfeller_plaza/Image_49.png</ColorMap>
+	<NormalMap>Data/Textures/normal.tga</NormalMap>
+	<flags double_sided="true"/>
+	<ShaderName>plant</ShaderName>
+</Object>
