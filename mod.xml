@@ -7,7 +7,7 @@
 	<Author>Gyrth</Author>
 	<Thumbnail>Data/Images/geopipe_thumb.jpg</Thumbnail>
 	<PreviewImage>Data/Images/geopipe_full.jpg</PreviewImage>
-	<Description>geopipe.</Description>
+	<Description>Mod for Overgrowth that loads Geopipe environments via Blender.</Description>
 	<Tag>1.5</Tag>
 	<SupportedVersion>*</SupportedVersion>
 	<NeedsRestart>false</NeedsRestart>
