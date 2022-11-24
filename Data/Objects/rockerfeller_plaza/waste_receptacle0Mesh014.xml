@@ -4,5 +4,5 @@
 	<ColorMap>Data/Textures/rockerfeller_plaza/Image_42.png</ColorMap>
 	<NormalMap>Data/Textures/normal.tga</NormalMap>
 	<flags double_sided="true"/>
-	<ShaderName>plant</ShaderName>
+	<ShaderName>envobject #ALPHA #PLANT</ShaderName>
 </Object>

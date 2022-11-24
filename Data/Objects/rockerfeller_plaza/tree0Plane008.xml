@@ -3,9 +3,7 @@
 	<Model>Data/Models/rockerfeller_plaza/tree0Plane008.obj</Model>
 	<ColorMap>Data/Textures/rockerfeller_plaza/Image_49.png</ColorMap>
 	<NormalMap>Data/Textures/normal.tga</NormalMap>
-	<TranslucencyMap>Data/Textures/Plants/Trees/temperate/green_bush_t.tga</TranslucencyMap>
-    <WindMap>Data/Textures/Plants/Trees/Pine/PineBranch_wind.tga</WindMap>
-	<ShaderPath>Data/GLSL/cubemapobj</ShaderPath>
-	<ShaderName>plant</ShaderName>
-    <flags no_collision = "true" bush_collision = "true" double_sided="true"/>
+	<WindMap>Data/Textures/default_windmap.png</WindMap>
+	<flags no_collision="true" bush_collision="true" double_sided="true"/>
+	<ShaderName>envobject #TANGENT #ALPHA #PLANT #NO_DECALS</ShaderName>
 </Object>

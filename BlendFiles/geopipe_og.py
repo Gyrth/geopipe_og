@@ -29,10 +29,10 @@ export_limit = -1
 cached_object_names = []
 cached_object_meshes = []
 
-plant_names = [ "Image_42",
-                "Image_48",
-                "Image_49",
-                "Image_50"]
+plant_names = [ "Image_49",
+                "Image_50" ]
+
+cutout_names = [ "Image_42" ]
 
 double_sided_names = []
 
@@ -152,7 +152,10 @@ def ExportTextures(project_name):
                     height = image_edited.size[1]
                     pixels = list(image_edited.pixels)
                     
+                    # Set the opacity of the texture to 1% so that the material has no reflection in-game.
                     if any(plant_name in image_name for plant_name in plant_names):
+                        pass
+                    elif any(coutout_name in image_name for coutout_name in coutout_names):
                         pass
                     else:
                         for i in range(3, len(pixels), 4):
@@ -295,11 +298,31 @@ def ExportXML(project_name):
         # The shadername is also the same.
         shadername_xml = object_xml_root.createElement('ShaderName')
         if any(plant_name in texture_name for plant_name in plant_names):
-            shadername_path = object_xml_root.createTextNode("plant")
+            
+#            translucency_xml = object_xml_root.createElement('TranslucencyMap')
+#            translucency_path = object_xml_root.createTextNode("Data/Textures/Plants/Trees/temperate/green_bush_t.tga")
+#            translucency_xml.appendChild(translucency_path)
+#            object_xml.appendChild(translucency_xml)
+            
+            wind_xml = object_xml_root.createElement('WindMap')
+            wind_path = object_xml_root.createTextNode("Data/Textures/default_windmap.png")
+            wind_xml.appendChild(wind_path)
+            object_xml.appendChild(wind_xml)
+            
+            shadername_path = object_xml_root.createTextNode("envobject #TANGENT #ALPHA #PLANT #NO_DECALS")
             
             # Add an extra tag for doublesided.
             flags_xml = object_xml_root.createElement('flags')
-            # Plants are double sided by default.
+            # Plants are double sided, have no collision and create leaf particles.
+            flags_xml.setAttribute('no_collision', 'true')
+            flags_xml.setAttribute('bush_collision', 'true')
+            flags_xml.setAttribute('double_sided', 'true')
+            object_xml.appendChild(flags_xml)
+        elif any(cutout_name in texture_name for cutout_name in cutout_names):
+            shadername_path = object_xml_root.createTextNode("envobject #ALPHA #PLANT")
+            
+            # Add an extra tag for doublesided.
+            flags_xml = object_xml_root.createElement('flags')
             flags_xml.setAttribute('double_sided', 'true')
             object_xml.appendChild(flags_xml)
         else:
@@ -361,9 +384,9 @@ def ExportLevelXML(project_name):
         global_bbox_center = obj.matrix_world @ local_bbox_center
         
         object_xml = level_xml_root.createElement('EnvObject')
-        object_xml.setAttribute('t0', str(round(global_bbox_center.x, 4)))
-        object_xml.setAttribute('t1', str(round(global_bbox_center.z, 4)))
-        object_xml.setAttribute('t2', str(round(global_bbox_center.y * -1.0, 4)))
+        object_xml.setAttribute('t0', str(global_bbox_center.x))
+        object_xml.setAttribute('t1', str(global_bbox_center.z))
+        object_xml.setAttribute('t2', str(global_bbox_center.y * -1.0))
 
         object_xml.setAttribute('s0', str(obj.scale.x))
         object_xml.setAttribute('s1', str(obj.scale.z))
